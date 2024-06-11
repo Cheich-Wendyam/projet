@@ -1,0 +1,108 @@
+.card{
+    border: radius 25px;
+    background-color: white;
+    width: 300px;
+}
+
+
+
+.slide-content {
+    position: relative;
+    width: 400px;
+    padding: 40px 0px;
+    height: 500px;
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+   
+}
+
+
+
+
+.image-content,
+.card-content{
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image-content{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+    
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: 25px 25px 0 25px;
+}
+overlay::before,
+overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: orange;
+}
+overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: white;
+}
+.card-image{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    padding: 3px;
+    background: #fff;
+    
+}
+
+.titre {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+    text-align: center;
+}
+
+
+.card-image .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    border: 3px solid #ffff;
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: orange;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background: #6610f2;
+}

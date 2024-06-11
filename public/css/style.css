@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700&display=swap');
+#map { height: 300px; }
+
+body {
+    
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #e9e6b8;
+}
+
+.navbar {
+    background-color: orange;
+}
+
+.navbar .navbar-brand, .navbar .nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: lightgray;
+}
+
+.navbar .navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.carousel-item img {
+    width: 5px; /* Ajustez la taille selon vos besoins */
+    height: 450px;
+    margin: 0 auto; /* Centre l'image horizontalement */
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour une meilleure lisibilité */
+    color: white; /* Couleur du texte */
+    padding: 10px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.carousel-caption h5 {
+    font-size: 1.5em; /* Taille du titre */
+    font-weight: bold; /* Poids du titre */
+}
+
+.carousel-caption p {
+    font-size: 1.2em; /* Taille du texte */
+}
+
+
+
+footer {
+    background-color: orange;
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+.info {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff6600; /* Highlight color for heading */
+}
+
+.info p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.info .learn-more {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.info .learn-more:hover {
+    background-color: #cc5200;
+}
+
+

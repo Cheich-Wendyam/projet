@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +23,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get('/espace', [App\Http\Controllers\EspaceController::class, 'index']);
 Route::get('/site', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/restos', [App\Http\Controllers\RestosController::class,'index']);

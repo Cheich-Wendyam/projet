@@ -9,7 +9,7 @@
     <p>
         Explorez une ville aux multiples facettes avec des monuments historiques impressionnants et des paysages époustouflants qui vous transporteront dans un voyage inoubliable.
     </p>
-    <button class="learn-more">En savoir plus</button>
+    <a href="/map" class="learn-more"><i class="fas fa-map-marker-alt"></i> Voir la carte</a>
 </div>
 
 <div class="slide-container swiper">
@@ -41,10 +41,5 @@
     <div class="swiper-pagination"></div>
 </div>
 
-<section>
-     <!-- Icone de carte -->
-     <button id="mapButton" class="btn btn-primary">
-        <i class="fas fa-map-marker-alt"></i> Voir la carte
-    </button>
-</section>
+
 @endsection

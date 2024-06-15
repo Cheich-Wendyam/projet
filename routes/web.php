@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Voyager;
 
 
 
@@ -22,7 +23,8 @@ Route::get('/layout', [App\Http\Controllers\Controller::class, 'layout']);
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
+Route::get('map', [App\Http\Controllers\MapController::class, 'index']);
 Route::get('/espace', [App\Http\Controllers\EspaceController::class, 'index']);
 Route::get('/site', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/restos', [App\Http\Controllers\RestosController::class,'index']);
+Route::get('/event', [App\Http\Controllers\EventController::class,'index']);

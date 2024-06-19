@@ -1,4 +1,5 @@
 @extends('lay')
 @section('content')
-<div id="map" data-spaces='@json($spaces)'></div>
+<br><br><br>
+<div id="map" data-spaces='@json($spaces)' data-restos='@json($restos)' data-sites='@json($sites)'></div>
 @endsection

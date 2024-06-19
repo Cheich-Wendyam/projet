@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Voyager;
+use App\Http\Controllers\RestosController;
 
 
 
@@ -28,3 +29,4 @@ Route::get('/espace', [App\Http\Controllers\EspaceController::class, 'index']);
 Route::get('/site', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/restos', [App\Http\Controllers\RestosController::class,'index']);
 Route::get('/event', [App\Http\Controllers\EventController::class,'index']);
+Route::get('/restos/{id}', [RestosController::class, 'show'])->name('restos.show');

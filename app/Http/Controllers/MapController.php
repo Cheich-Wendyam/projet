@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Espace;
+use App\Restaurant;
+use App\Site;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Menu;
 
@@ -23,12 +25,17 @@ class MapController extends Controller
             'logo' => setting('site.logo') 
         ];
         $spaces= Espace::all();
+        $restos=Restaurant::all();
+        $sites=Site::all();
         $carousel_images= Product::all();
         return view('map', [
             'carousel_images' => $carousel_images,
             'menu' => $menu,
             'site_settings' => $site_settings,
-            'spaces' => $spaces
+            'spaces' => $spaces,
+            'restos' => $restos,
+            'sites' => $sites
+
         ]);
         
     }

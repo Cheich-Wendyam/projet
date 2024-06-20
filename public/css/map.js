@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+     // Function to calculate and display route
+     function calculateRoute(start, destination) {
+        L.Routing.control({
+            waypoints: [
+                L.latLng(start),     // Start point (user location)
+                L.latLng(destination) // Destination point (clicked marker)
+            ],
+            routeWhileDragging: true // Update route while dragging the map
+        }).addTo(map);
+    }
     // Function to add markers for each type of establishment
     function addMarkersForType(spaces, iconType) {
         spaces.forEach(function(space) {
@@ -69,16 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addMarkersForType(restos, 'resto');
     addMarkersForType(sites, 'site');
 
-    // Function to calculate and display route
-    function calculateRoute(start, destination) {
-        L.Routing.control({
-            waypoints: [
-                L.latLng(start),     // Start point (user location)
-                L.latLng(destination) // Destination point (clicked marker)
-            ],
-            routeWhileDragging: true // Update route while dragging the map
-        }).addTo(map);
-    }
+   
 
     // Use the browser's geolocation API to get user's location
     if (navigator.geolocation) {

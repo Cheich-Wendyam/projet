@@ -6,6 +6,7 @@ use App\Http\Controllers\RestosController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\EspaceController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,7 @@ Route::get('/restos/{id}', [RestosController::class, 'show'])->name('restos.show
 Route::get('/site/{id}', [SiteController::class, 'show'])->name('sites.show');
 Route::get('/espace/{id}', [EspaceController::class, 'show'])->name('space.show');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
+
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+

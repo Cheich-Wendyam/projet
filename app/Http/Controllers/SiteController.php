@@ -5,13 +5,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Site;
-use Illuminate\Support\Facades\DB;
-use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Models\DataRow;
-use TCG\Voyager\Models\DataType;
+
 use TCG\Voyager\Models\Menu;
-use TCG\Voyager\Models\MenuItem;
-use TCG\Voyager\Models\Permission;
+
 
 
 class SiteController extends Controller
@@ -36,5 +32,22 @@ class SiteController extends Controller
             'site_settings' => $site_settings
             
         ]);
+  }
+
+  
+  public function show($id)
+  {
+      $menu = Menu::where('name', 'principal')->first();
+      $site_settings = [
+          'title' => setting('site.title'),
+          'description' => setting('site.description'),
+          'logo' => setting('site.logo') 
+      ];
+      $site = Site::with('photos')->findOrFail($id);
+      return view('sites.show', [
+          'site' => $site,
+          'menu' => $menu,
+          'site_settings' => $site_settings
+      ]);
   }
 }

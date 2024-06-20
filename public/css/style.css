@@ -7,6 +7,7 @@ body {
     
     font-family: 'Open Sans Condensed', sans-serif;
     background-color: #e9e6b8;
+   
 }
 
 .navbar {
@@ -34,10 +35,16 @@ body {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+.navbar .nav-link.active {
+    background-color: #fff;
+    color: orange;
+    border-radius: 5px;
+}
+
 .carousel-item img {
-    width: 5px; /* Ajustez la taille selon vos besoins */
-    height: 450px;
-    margin: 0 auto; /* Centre l'image horizontalement */
+    width: 5px; 
+    height: 600px;
+    margin: 0 auto;
 }
 
 .carousel-caption {
@@ -66,6 +73,41 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+    left: 0;
+}
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Le conteneur principal doit remplir l'espace restant */
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Le conteneur de détails du site doit également s'ajuster */
+.site-details {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.photos img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 

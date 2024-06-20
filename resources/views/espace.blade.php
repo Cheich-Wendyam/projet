@@ -1,3 +1,4 @@
+{{-- resources/views/lay.blade.php --}}
 @extends('lay')
 @section('content')
 <br><br>
@@ -21,7 +22,7 @@
 <div class="slide-container swiper">
     <div class="slide-content">
         <div class="card-wrapper swiper-wrapper">
-        @foreach ($carousel_images as $index => $image)
+        @foreach ($spaces as $index => $image)
             <div class="card swiper-slide {{ $index === 0 ? 'active' : '' }}">
                 <div class="image-content {{ $index === 0 ? 'active' : '' }} ">
                     <span class="overlay {{ $index === 0 ? 'active' : '' }}"></span>
@@ -31,11 +32,10 @@
                 </div>
 
                 <div class="card-content {{ $index === 0 ? 'active' : '' }}">
-                <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->title }}</h2>
+                <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->Titre }}</h2>
                 <p class="description {{ $index === 0 ? 'active' : '' }}"> {{ $image->description }} </p>
 
-                <button class="button {{ $index === 0 ? 'active' : '' }}">En savoir plus</button>
-            </div>
+                <a href="{{ route('space.show', $image->id) }}" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
         @endforeach
 

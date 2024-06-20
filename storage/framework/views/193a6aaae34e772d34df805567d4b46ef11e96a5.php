@@ -1,4 +1,5 @@
 
+
 <?php $__env->startSection('content'); ?>
 <br><br>
 <div class="info">
@@ -21,7 +22,7 @@
 <div class="slide-container swiper">
     <div class="slide-content">
         <div class="card-wrapper swiper-wrapper">
-        <?php $__currentLoopData = $carousel_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $spaces; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card swiper-slide <?php echo e($index === 0 ? 'active' : ''); ?>">
                 <div class="image-content <?php echo e($index === 0 ? 'active' : ''); ?> ">
                     <span class="overlay <?php echo e($index === 0 ? 'active' : ''); ?>"></span>
@@ -31,11 +32,10 @@
                 </div>
 
                 <div class="card-content <?php echo e($index === 0 ? 'active' : ''); ?>">
-                <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->title); ?></h2>
+                <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->Titre); ?></h2>
                 <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> <?php echo e($image->description); ?> </p>
 
-                <button class="button <?php echo e($index === 0 ? 'active' : ''); ?>">En savoir plus</button>
-            </div>
+                <a href="<?php echo e(route('space.show', $image->id)); ?>" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

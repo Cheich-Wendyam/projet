@@ -1,4 +1,5 @@
 
+
 <?php $__env->startSection('content'); ?>
 <br><br>
 <div class="info">
@@ -34,8 +35,7 @@
                 <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->title); ?></h2>
                 <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> <?php echo e($image->description); ?> </p>
 
-                <button class="button <?php echo e($index === 0 ? 'active' : ''); ?>">En savoir plus</button>
-            </div>
+                <a href="<?php echo e(route('sites.show', $image->id)); ?>" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

@@ -54,7 +54,7 @@
 
 
 <footer>
-    <p>Copyright 2024 - Tous droits reservés</p>
+    &copy; <?php echo e(date('Y')); ?> <?php echo e($site_settings['title']); ?>. Tous droits réservés.
 </footer>
 
 </body>

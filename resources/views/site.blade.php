@@ -1,3 +1,4 @@
+{{-- resources/views/lay.blade.php --}}
 @extends('lay')
 @section('content')
 <br><br>
@@ -34,8 +35,7 @@
                 <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->title }}</h2>
                 <p class="description {{ $index === 0 ? 'active' : '' }}"> {{ $image->description }} </p>
 
-                <button class="button {{ $index === 0 ? 'active' : '' }}">En savoir plus</button>
-            </div>
+                <a href="{{ route('sites.show', $image->id) }}" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
         @endforeach
 

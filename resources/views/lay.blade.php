@@ -53,7 +53,7 @@
 
 
 <footer>
-    <p>Copyright 2024 - Tous droits reservés</p>
+    &copy; {{ date('Y') }} {{ $site_settings['title'] }}. Tous droits réservés.
 </footer>
 
 </body>

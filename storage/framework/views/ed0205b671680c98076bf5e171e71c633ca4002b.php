@@ -23,12 +23,6 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
-<!-- Contenu de la page -->
-<div class="container">
-    <h1>Bienvenue sur la page d'accueil</h1>
-    <div class="lead"><?php echo e($site_settings['description']); ?></div>
-</div>
 <?php $__env->stopSection(); ?>
 
 

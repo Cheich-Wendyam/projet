@@ -25,11 +25,16 @@ class SiteController extends Controller
             'description' => setting('site.description'),
             'logo' => setting('site.logo') 
         ];
-       
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         return view('site', [
             'menu' => $menu,
             'carousel_images' => $carousel_images,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
             
         ]);
   }
@@ -43,11 +48,17 @@ class SiteController extends Controller
           'description' => setting('site.description'),
           'logo' => setting('site.logo') 
       ];
+      $today_visitors = 150; 
+      $month_visitors = 4500; 
+      $total_visitors = 120000; 
       $site = Site::with('photos')->findOrFail($id);
       return view('sites.show', [
           'site' => $site,
           'menu' => $menu,
-          'site_settings' => $site_settings
+          'site_settings' => $site_settings,
+          'today_visitors' => $today_visitors,
+          'month_visitors' => $month_visitors,
+          'total_visitors' => $total_visitors
       ]);
   }
 }

@@ -23,6 +23,9 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<script src="<?php echo e(asset('css/all.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/swiper-bundle.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/scr.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 

@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-top: 20px;
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 10px;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+    color: #8c71eb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form .social-media {
+    margin-top: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form .social-media a {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #545454;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #545454;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+form .social-media a:hover {
+    background-color: #545454;
+    color: white;
+}
+
+form p.choose-email {
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+form .inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+form .inputs input[type="text"],
+form .inputs input[type="email"],
+form .inputs input[type="password"] {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+form .inputs input[type="text"]:focus,
+form .inputs input[type="email"]:focus,
+form .inputs input[type="password"]:focus {
+    background-color: #f1f1f1;
+}
+
+form p.inscription {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #878787;
+    text-align: center;
+}
+
+form span {
+    color: #eb7371;
+    cursor: pointer;
+}
+
+form span a {
+    color: #eb7371;
+    text-decoration: none;
+}
+
+form span a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #eb7371;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #e06262;
+}

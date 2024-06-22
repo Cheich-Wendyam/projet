@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="card-content {{ $index === 0 ? 'active' : '' }}">
-                <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->title }}</h2>
-                <p class="description {{ $index === 0 ? 'active' : '' }}"> {{ $image->description }} </p>
+                <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->Titre }}</h2>
+                <p class="description {{ $index === 0 ? 'active' : '' }}"> Site Touristique </p>
 
                 <a href="{{ route('sites.show', $image->id) }}" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
@@ -46,7 +46,9 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
-
+<script src="{{ asset('css/all.min.js') }}"></script>
+<script src="{{asset('css/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('css/scr.js')}}"></script>
 @endsection
 
 

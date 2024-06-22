@@ -14,5 +14,8 @@
             </div>
         </div>
     </div>
+<script src="{{ asset('css/all.min.js') }}"></script>
+<script src="{{asset('css/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('css/scr.js')}}"></script>
 @endsection
 

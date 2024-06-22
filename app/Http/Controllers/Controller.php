@@ -27,7 +27,9 @@ class Controller extends BaseController
              return view('welcome')->with('error', 'Menu not found.');
          }
  
-
+         $today_visitors = 150; 
+         $month_visitors = 4500; 
+         $total_visitors = 120000; 
  
          $site_settings = [
              'title' => setting('site.title'),
@@ -40,7 +42,10 @@ class Controller extends BaseController
          return view('welcome', [
              'carousel_images' => $carousel_images,
              'menu' => $menu,
-             'site_settings' => $site_settings
+             'site_settings' => $site_settings,
+             'today_visitors' => $today_visitors,
+             'month_visitors' => $month_visitors,
+             'total_visitors' => $total_visitors
          ]);
     }
 
@@ -65,7 +70,8 @@ class Controller extends BaseController
         return view('layout', [
             'carousel_images' => $carousel_images,
             'menu' => $menu,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+        
         ]);
    }
 

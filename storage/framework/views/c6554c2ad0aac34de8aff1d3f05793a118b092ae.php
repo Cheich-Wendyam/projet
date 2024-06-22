@@ -48,6 +48,9 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+<script src="<?php echo e(asset('css/all.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/swiper-bundle.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/scr.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('lay', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Cheich Yalaweogo\Desktop\projet\resources\views/restos.blade.php ENDPATH**/ ?>

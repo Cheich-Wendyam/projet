@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use TCG\Voyager\Voyager;
+use Tcg\Voyager\Facades\Voyager;
 use App\Http\Controllers\RestosController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\EspaceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +40,28 @@ Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show')
 
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Route pour la vue avancée
+Route::get('/avance', function () {
+    return view('avance'); 
+})->name('avance')->middleware('auth');
+
+Route::get('/welcome', [App\Http\Controllers\Controller::class, 'index'])->name('welcome');
+
+Route::get('/chargement', function () {
+    return view('chargement');
+})->name('chargement');
+
+Route::get('/', function () {
+    return redirect()->route('chargement');
+});
+Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
+
 

@@ -24,6 +24,9 @@ class MapController extends Controller
             'description' => setting('site.description'),
             'logo' => setting('site.logo') 
         ];
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         $spaces= Espace::all();
         $restos=Restaurant::all();
         $sites=Site::all();
@@ -34,7 +37,10 @@ class MapController extends Controller
             'site_settings' => $site_settings,
             'spaces' => $spaces,
             'restos' => $restos,
-            'sites' => $sites
+            'sites' => $sites,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
 
         ]);
         

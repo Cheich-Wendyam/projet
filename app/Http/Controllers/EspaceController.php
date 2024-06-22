@@ -23,13 +23,19 @@ class EspaceController extends Controller
             'description' => setting('site.description'),
             'logo' => setting('site.logo') 
         ];
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         $carousel_images= Product::all();
         $spaces= Espace::all();
         return view('espace', [
             'spaces' => $spaces,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
         ]);
         
     }
@@ -42,11 +48,17 @@ class EspaceController extends Controller
             'description' => setting('site.description'),
             'logo' => setting('site.logo') 
         ];
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         $space = Espace::with('photos')->findOrFail($id);
         return view('space.show', [
             'space' => $space,
             'menu' => $menu,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
         ]);
     }
 }

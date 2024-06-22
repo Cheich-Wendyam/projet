@@ -7,13 +7,17 @@
         <div class="site-details">
             <h1>{{ $events->Titre }}</h1>
             <p>{{ $events->description }}</p>
-
+            <img src="{{ Storage::url($events->image) }}" alt="Photo de {{ $events->Titre }}">
             <div class="photos">
                 @foreach($events->photos as $photo)
                     <img src="{{ Storage::url($photo->path) }}" alt="Photo de {{ $events->Titre }}">
                 @endforeach
             </div>
+
         </div>
     </div>
+<script src="{{ asset('css/all.min.js') }}"></script>
+<script src="{{asset('css/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('css/scr.js')}}"></script>
 @endsection
 

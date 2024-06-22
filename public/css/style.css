@@ -76,6 +76,37 @@ footer {
     left: 0;
 }
 
+footer a,
+footer p {
+    color: white; /* Couleur du texte et des liens dans le footer */
+}
+
+footer a {
+    color: white; /* Couleur des liens dans le footer */
+}
+
+footer .container {
+    max-width: 1200px; /* Largeur maximale du contenu du footer */
+    margin: auto; /* Centrage horizontal du contenu */
+}
+
+footer .list-unstyled li {
+    padding: 5px 0; /* Espacement entre les éléments de liste */
+}
+
+footer .social {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+footer .text-center {
+    background-color: rgba(0, 0, 0, 0.2); /* Fond semi-transparent en bas du footer */
+    padding: 10px 0; /* Espacement intérieur */
+    color: white; /* Couleur du texte dans le footer */
+}
+
 
 
 

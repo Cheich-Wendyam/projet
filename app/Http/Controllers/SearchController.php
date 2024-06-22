@@ -35,12 +35,15 @@ class SearchController extends Controller
         if (!$menu) {
             return view('welcome')->with('error', 'Menu non trouvé');
         }
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         $site_settings = [
             'title' => setting('site.title'),
             'description' => setting('site.description'),
             'logo' => setting('site.logo') 
         ];
 
-        return view('search_results', compact('spaces', 'restaurants','sites', 'events','menu', 'site_settings', 'query'));
+        return view('search_results', compact('spaces', 'today_visitors', 'month_visitors', 'total_visitors','restaurants','sites', 'events','menu', 'site_settings', 'query'));
     }
 }

@@ -25,11 +25,17 @@ class EventController extends Controller
         ];
         $carousel_images= Product::all();
         $events=Event::all();
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         return view('event', [
             'events' => $events,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
         ]);
         
     }
@@ -42,10 +48,16 @@ class EventController extends Controller
             'logo' => setting('site.logo') 
         ];
         $events = Event::with('photos')->findOrFail($id);
+        $today_visitors = 150; 
+        $month_visitors = 4500; 
+        $total_visitors = 120000; 
         return view('events.show', [
             'events' => $events,
             'menu' => $menu,
-            'site_settings' => $site_settings
+            'site_settings' => $site_settings,
+            'today_visitors' => $today_visitors,
+            'month_visitors' => $month_visitors,
+            'total_visitors' => $total_visitors
         ]);
     }
 }

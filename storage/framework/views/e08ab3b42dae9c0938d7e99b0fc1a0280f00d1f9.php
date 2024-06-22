@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="card-content <?php echo e($index === 0 ? 'active' : ''); ?>">
-                <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->title); ?></h2>
-                <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> <?php echo e($image->description); ?> </p>
+                <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->Titre); ?></h2>
+                <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> Site Touristique </p>
 
                 <a href="<?php echo e(route('sites.show', $image->id)); ?>" class="btn btn-primary">En savoir plus</a>            </div>
             </div>
@@ -46,7 +46,9 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
-
+<script src="<?php echo e(asset('css/all.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/swiper-bundle.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/scr.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 

@@ -1,7 +1,9 @@
 @extends('lay')
 @section('content')
 <br><br><br>
-<div id="map" data-spaces='@json($spaces)' data-restos='@json($restos)' data-sites='@json($sites)'></div>
+<div id="map" data-spaces='@json($spaces)' data-restos='@json($restos)' data-sites='@json($sites)' data-restaurant='@json($resto)' data-event='@json($event)' data-hotels='@json($hotels)'></div>
+</div>
+
 <script src="{{asset('css/map.js')}}"></script>
 <script src="{{ asset('css/all.min.js') }}"></script>
 <script src="{{asset('css/swiper-bundle.min.js')}}"></script>

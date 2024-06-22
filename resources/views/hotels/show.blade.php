@@ -1,19 +1,16 @@
-{{-- resources/views/space/show.blade.php --}}
+{{-- resources/views/hotels/show.blade.php --}}
+
 @extends('lay')
 @section('content')
 <br><br>
     <div class="content-container">
         <div class="site-details">
-            <h1>{{ $space->Titre }}</h1>
-            <p>{{ $space->description }}</p>
-
-            <div>
-                <img src="{{ Storage::url($space->image) }}" alt="{{ $space->Titre }}">
-            </div>
+            <h1>{{ $hotels->Titre }}</h1>
+            <p>{{ $hotels->description }}</p>
 
             <div class="photos">
-                @foreach($space->photos as $photo)
-                    <img src="{{ Storage::url($photo->path) }}" alt="Photo de {{ $space->Titre }}">
+                @foreach($hotels->photos as $photo)
+                    <img src="{{ Storage::url($photo->path) }}" alt="Photo de {{ $hotels->Titre }}">
                 @endforeach
             </div>
         </div>
@@ -23,8 +20,12 @@
             </a>
         </p>
     </div>
+    <script src="{{ asset('js/leaflet.js') }}"></script>
+<script src="{{ asset('js/leaflet-routing-machine.js') }}"></script>
+
 <script src="{{ asset('css/all.min.js') }}"></script>
 <script src="{{asset('css/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('css/scr.js')}}"></script>
+<script src="{{ asset('js/map.js') }}"></script>
 @endsection
 

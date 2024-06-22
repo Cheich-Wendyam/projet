@@ -15,6 +15,11 @@
             </div>
 
         </div>
+        <p>
+            <a href="{{ route('map') }}" class="show-on-map">
+               <i class="fas fa-map-marker-alt"></i> Voir sur la carte
+            </a>
+        </p>
     </div>
 <script src="{{ asset('css/all.min.js') }}"></script>
 <script src="{{asset('css/swiper-bundle.min.js')}}"></script>

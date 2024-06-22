@@ -15,13 +15,17 @@
             </div>
         </div>
         <p>
-            <a href="{{ route('map') }}">
-                Voir sur la carte
+            <a href="{{ route('map.show', $resto->id) }}" class="show-on-map">
+               <i class="fas fa-map-marker-alt"></i> Voir sur la carte
             </a>
         </p>
     </div>
+    <script src="{{ asset('js/leaflet.js') }}"></script>
+<script src="{{ asset('js/leaflet-routing-machine.js') }}"></script>
+
 <script src="{{ asset('css/all.min.js') }}"></script>
 <script src="{{asset('css/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('css/scr.js')}}"></script>
+<script src="{{ asset('js/map.js') }}"></script>
 @endsection
 

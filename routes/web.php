@@ -33,6 +33,8 @@ Route::get('/espace', [App\Http\Controllers\EspaceController::class, 'index']);
 Route::get('/site', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/restos', [App\Http\Controllers\RestosController::class,'index']);
 Route::get('/event', [App\Http\Controllers\EventController::class,'index']);
+Route::get('/hotel', [App\Http\Controllers\HotelController::class,'index']);
+Route::get('/hotel/{id}', [App\Http\Controllers\HotelController::class, 'show'])->name('hotels.show');
 Route::get('/restos/{id}', [RestosController::class, 'show'])->name('restos.show');
 Route::get('/site/{id}', [SiteController::class, 'show'])->name('sites.show');
 Route::get('/espace/{id}', [EspaceController::class, 'show'])->name('space.show');
@@ -63,5 +65,9 @@ Route::get('/', function () {
     return redirect()->route('chargement');
 });
 Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
+Route::get('/map/{id}', [App\Http\Controllers\MapController::class, 'show'])->name('map.show');
+Route::get('/map{id}', [App\Http\Controllers\MapController::class,'showSite'])->name('map.showSite');
+Route::get('/map{id}', [App\Http\Controllers\MapController::class,'showSpace'])->name('map.showSpace');
+
 
 

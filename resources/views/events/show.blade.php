@@ -5,7 +5,8 @@
 <br><br>
     <div class="content-container">
         <div class="site-details">
-            <h1>{{ $events->Titre }}</h1>
+            <h1>Description</h1>
+            <h2>{{ $events->Titre }}</h2>
             <p>{{ $events->description }}</p>
             <img src="{{ Storage::url($events->image) }}" alt="Photo de {{ $events->Titre }}">
             <div class="photos">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Espace;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Product;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Menu;
@@ -28,10 +29,12 @@ class EspaceController extends Controller
         $total_visitors = 120000; 
         $carousel_images= Product::all();
         $spaces= Espace::all();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         return view('espace', [
             'spaces' => $spaces,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
+            'comments'=>$comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,
@@ -51,10 +54,12 @@ class EspaceController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000; 
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         $space = Espace::with('photos')->findOrFail($id);
         return view('space.show', [
             'space' => $space,
             'menu' => $menu,
+            'comments'=> $comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,

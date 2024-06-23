@@ -4,7 +4,8 @@
 <br><br>
     <div class="content-container">
         <div class="site-details">
-            <h1>{{ $space->Titre }}</h1>
+            <h1>Description</h1>
+            <h2>{{ $space->Titre }}</h2>
             <p>{{ $space->description }}</p>
 
             <div>

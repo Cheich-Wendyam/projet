@@ -6,6 +6,7 @@ use App\Hotel;
 use App\Product;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Menu;
+use App\Models\Comment;
 
 class HotelController extends Controller
 {
@@ -24,11 +25,13 @@ class HotelController extends Controller
         $hotels=Hotel::all();
         $today_visitors = 150; 
         $month_visitors = 4500; 
-        $total_visitors = 120000; 
+        $total_visitors = 120000;
+        $comments = Comment::orderBy('created_at','desc')->get();
         return view('hotel', [
             'hotels' => $hotels,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
+            'comments'=>$comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,
@@ -48,9 +51,11 @@ class HotelController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000; 
+        $comments = Comment::orderBy('created_at','desc')->get();
         return view('hotels.show', [
             'hotels' => $hotels,
             'menu' => $menu,
+            'comments'=>$comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,

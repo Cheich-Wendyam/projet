@@ -5,7 +5,8 @@
 <br><br>
     <div class="content-container">
         <div class="site-details">
-            <h1>{{ $resto->Titre }}</h1>
+            <h1>Description</h1>
+            <h2>{{ $resto->Titre }}</h2>
             <p>{{ $resto->description }}</p>
 
             <div class="photos">

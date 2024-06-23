@@ -7,6 +7,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Menu;
 use App\Product;
 use App\Restaurant;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class RestosController extends Controller
@@ -25,9 +26,11 @@ class RestosController extends Controller
         $month_visitors = 4500; 
         $total_visitors = 120000; 
         $carousel_images= Product::all();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         $restos=Restaurant::all();
         return view('restos', [
             'restos' => $restos,
+            'comments' => $comments,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
             'site_settings' => $site_settings,
@@ -48,9 +51,11 @@ class RestosController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000; 
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         $resto = Restaurant::with('photos')->findOrFail($id);
         return view('restos.show', [
             'resto' => $resto,
+            'comments' => $comments,
             'menu' => $menu,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,

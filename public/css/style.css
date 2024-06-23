@@ -7,8 +7,10 @@ body {
     
     font-family: 'Open Sans Condensed', sans-serif;
     background-color: #e9e6b8;
+    
    
 }
+
 
 .navbar {
     background-color: orange;
@@ -120,12 +122,24 @@ html, body {
 
 /* Le conteneur principal doit remplir l'espace restant */
 .content-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #555454;
+    padding: 2rem;
+    width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.content-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff6600;
 }
 
 /* Le conteneur de détails du site doit également s'ajuster */
@@ -157,7 +171,7 @@ html, body {
 .info h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #ff6600; /* Highlight color for heading */
+    color: #ff6600; 
 }
 
 .info p {

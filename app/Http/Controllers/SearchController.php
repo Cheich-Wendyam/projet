@@ -9,6 +9,7 @@ use App\Restaurant;
 use App\Site;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Menu;
+use App\Models\Comment;
 
 class SearchController extends Controller
 {
@@ -26,6 +27,7 @@ class SearchController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000;
+        $comments = Comment::orderBy('created_at','desc')->get();
         $query = $request->input('query');
 
         // Recherche par type d'élément spécifique
@@ -33,16 +35,16 @@ class SearchController extends Controller
             case 'espace':
             case 'loisir':
                 $spaces = Espace::all();
-                return view('search_results', compact('spaces', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('spaces', 'comments','query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
             case 'restaurant':
                 $restaurants = Restaurant::all();
-                return view('search_results', compact('restaurants', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('restaurants','comments', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
             case 'hotel':
             case 'hôtel':
                 $hotels = Hotel::all();
-                return view('search_results', compact('hotels', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('hotels', 'comments', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
             case 'site':
             case 'sites':
@@ -50,12 +52,12 @@ class SearchController extends Controller
             case 'monument':
             case 'sites touristiques':
                 $sites = Site::all();
-                return view('search_results', compact('sites', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('sites', 'comments', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
             case 'event':
             case 'événement':
                 $events = Event::all();
-                return view('search_results', compact('events', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('events', 'comments', 'query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
             default:
                 // Recherche générale sur tous les types d'éléments
@@ -81,10 +83,10 @@ class SearchController extends Controller
 
                 // Vérifie si aucun résultat n'a été trouvé
                 if ($spaces->isEmpty() && $restaurants->isEmpty() && $hotels->isEmpty() && $sites->isEmpty() && $events->isEmpty()) {
-                    return view('search_results', compact('query','menu', 'site_settings','today_visitors', 'month_visitors', 'total_visitors'))->with('error', "Aucun résultat trouvé pour '{$query}'.");
+                    return view('search_results', compact('query','menu', 'comments','site_settings','today_visitors', 'month_visitors', 'total_visitors'))->with('error', "Aucun résultat trouvé pour '{$query}'.");
                 }
 
-                return view('search_results', compact('spaces','menu', 'site_settings', 'restaurants', 'hotels', 'sites', 'events', 'query','today_visitors', 'month_visitors', 'total_visitors'));
+                return view('search_results', compact('spaces','menu', 'comments','site_settings', 'restaurants', 'hotels', 'sites', 'events', 'query','today_visitors', 'month_visitors', 'total_visitors'));
                 break;
         }
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Product;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Menu;
@@ -28,10 +29,12 @@ class EventController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000; 
+        $comments= Comment::orderBy('created_at','desc')->get();
         return view('event', [
             'events' => $events,
             'carousel_images' => $carousel_images,
             'menu' => $menu,
+            'comments'=>$comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,
@@ -51,9 +54,11 @@ class EventController extends Controller
         $today_visitors = 150; 
         $month_visitors = 4500; 
         $total_visitors = 120000; 
+        $comments = Comment::orderBy('created_at','desc')->get();
         return view('events.show', [
             'events' => $events,
             'menu' => $menu,
+            'comments'=> $comments,
             'site_settings' => $site_settings,
             'today_visitors' => $today_visitors,
             'month_visitors' => $month_visitors,

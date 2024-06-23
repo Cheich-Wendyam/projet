@@ -99,36 +99,27 @@
 
      
         <!-- Section: Commentaires -->
-        <div class="form-group mb-3">
-    <label for="name">Nom</label>
-    <input type="text" class="form-control" id="name" name="name" required autocomplete="name">
-</div>
-<div class="form-group mb-3">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
-</div>
-<div class="form-group mb-3">
-    <label for="message">Message</label>
-    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-</div>
-<div class="form-group mb-3">
-    
-    <div id="rating"></div>
-    <label for="rating_value">Note</label>
-    <input type="hidden" name="rating" id="rating_value">
-</div>
-<script>
-$(function () {
-    $("#rating").rateYo({
-        rating: 5,
-        fullStar: true,
-        onSet: function (rating, rateYoInstance) {
-            $('#rating_value').val(rating);
-        }
-    });
-});
-</script>
-<button type="submit" class="btn btn-primary">Envoyer</button>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <h5 class="text-uppercase">Laissez un commentaire</h5>
+                <form action="<?php echo e(route('comments.store')); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <div class="form-group mb-3">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
 
 
         <!-- Section: Commentaires -->
@@ -142,15 +133,6 @@ $(function () {
                         <div class="card-body">
                             <h6 class="card-title"><?php echo e($comment->name); ?> <small class="text-muted">(<?php echo e($comment->created_at->format('d/m/Y H:i')); ?>)</small></h6>
                             <p class="card-text" style="color: black;"><?php echo e($comment->message); ?></p>
-                            <div class="rating">
-                            <?php for($i = 0; $i < 5; $i++): ?>
-                                <?php if($i < $comment->rating): ?>
-                                    <span class="fa fa-star checked"></span>
-                                <?php else: ?>
-                                    <span class="fa fa-star"></span>
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                        </div>
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

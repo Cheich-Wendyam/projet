@@ -6,10 +6,10 @@
 <div class="info">
     <h2>Bienvenue à Ouagadougou</h2>
     <p>
-        Découvrez la magnifique ville de Ouagadougou, un joyau historique débordant de sites touristiques fascinants.
+        Vous cherchez des restaurants et des bars à Ouagadougou,envie de manger des plats africains et exotiques? Laissez-vous guider par cette belle selection de restaurants. La carte indique les restaurants et bars à proximite.
     </p>
     <p>
-        Explorez une ville aux multiples facettes avec des monuments historiques impressionnants et des paysages époustouflants qui vous transporteront dans un voyage inoubliable.
+        Explorez et trouvez la meilleur adresse. Vous serez rapidement dans le meilleur endroit.
     </p>
     <p>
         <form class="d-flex" role="search" action="{{ route('search') }}" method="GET">

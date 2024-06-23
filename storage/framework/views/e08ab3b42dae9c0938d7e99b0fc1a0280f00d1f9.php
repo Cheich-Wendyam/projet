@@ -3,7 +3,7 @@
 <?php $__env->startSection('content'); ?>
 <br><br>
 <div class="info">
-    <h2>Bienvenue à Ouagadougou</h2>
+    <h2>Les sites touristiques de Ouagadougou,un pletore de merveilles</h2>
     <p>
         Découvrez la magnifique ville de Ouagadougou, un joyau historique débordant de sites touristiques fascinants.
     </p>

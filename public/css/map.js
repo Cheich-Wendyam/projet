@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var marker = L.marker([space.latitude, space.longitude], { icon: icon })
                 .addTo(map)
-                .bindPopup("<b>" + space.Titre + "</b><br>" + space.description);
+                .bindPopup("<b>" + space.Titre + "</b><br><img src='" + space.image + "' alt='Image'/><br>" + space.description);
 
             // Ajouter un écouteur d'événement de clic pour afficher l'itinéraire lorsque le marqueur est cliqué
             marker.on('click', function(e) {
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showOnMap(event.latitude, event.longitude, event.Titre, event.description);
         });
     }
-    
+
 
    
 });

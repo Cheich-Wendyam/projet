@@ -3,12 +3,12 @@
 <?php $__env->startSection('content'); ?>
 <br><br>
 <div class="info">
-    <h2>Bienvenue à Ouagadougou</h2>
+    <h2>Trouvez les espaces de detente et de loisirs</h2>
     <p>
-        Découvrez la magnifique ville de Ouagadougou, un joyau historique débordant de sites touristiques fascinants.
+        Cinémas, theatres, park, bars, clubs et autres espaces de loisirs.
     </p>
     <p>
-        Explorez une ville aux multiples facettes avec des monuments historiques impressionnants et des paysages époustouflants qui vous transporteront dans un voyage inoubliable.
+        Tous les espaces de detente et de loisirs à Ouagadougou en quelques minutes.
     </p>
     <p>
         <form class="d-flex" role="search" action="<?php echo e(route('search')); ?>" method="GET">

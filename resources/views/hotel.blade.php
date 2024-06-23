@@ -4,12 +4,13 @@
 @section('content')
 <br><br>
 <div class="info">
-    <h2>Bienvenue à Ouagadougou</h2>
+    <h2>Trouvez les meilleurs hotels</h2>
     <p>
         Découvrez les meilleurs hotels de la ville de Ouagadougou.Des chambres confortables, des restaurants et des services de qualité.
     </p>
     <p>
-        Explorez et trouvez la meilleur adresse..
+        Laissez vous emporter et profiter de votre sejour en selectionnant les meilleurs hotels.
+        
     </p>
     <p>
         <form class="d-flex" role="search" action="{{ route('search') }}" method="GET">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use TCG\Voyager\Models\Menu;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -30,6 +31,7 @@ class Controller extends BaseController
          $today_visitors = 150; 
          $month_visitors = 4500; 
          $total_visitors = 120000; 
+         $comments = Comment::orderBy('created_at', 'desc')->get();
  
          $site_settings = [
              'title' => setting('site.title'),
@@ -42,6 +44,7 @@ class Controller extends BaseController
          return view('welcome', [
              'carousel_images' => $carousel_images,
              'menu' => $menu,
+             'comments' => $comments,
              'site_settings' => $site_settings,
              'today_visitors' => $today_visitors,
              'month_visitors' => $month_visitors,

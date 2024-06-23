@@ -8,11 +8,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/styles.css')}} ">
     <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 </head>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -90,6 +96,68 @@
             <!-- Section: Contact -->
         </div>
 
+     
+        <!-- Section: Commentaires -->
+        <div class="form-group mb-3">
+    <label for="name">Nom</label>
+    <input type="text" class="form-control" id="name" name="name" required autocomplete="name">
+</div>
+<div class="form-group mb-3">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
+</div>
+<div class="form-group mb-3">
+    <label for="message">Message</label>
+    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+</div>
+<div class="form-group mb-3">
+    <label for="rating">Note</label>
+    <div id="rating"></div>
+    <input type="hidden" name="rating" id="rating_value" value="0">
+</div>
+<script>
+$(function () {
+    $("#rating").rateYo({
+        rating: 0,
+        fullStar: true,
+        onSet: function (rating, rateYoInstance) {
+            $('#rating_value').val(rating);
+        }
+    });
+});
+</script>
+<button type="submit" class="btn btn-primary">Envoyer</button>
+
+
+        <!-- Section: Commentaires -->
+
+        <!-- Section: Affichage des  Commentaires -->
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <h5 class="text-uppercase">Commentaires des visiteurs</h5>
+                @foreach($comments as $comment)
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title">{{ $comment->name }} <small class="text-muted">({{ $comment->created_at->format('d/m/Y H:i') }})</small></h6>
+                            <p class="card-text" style="color: black;">{{ $comment->message }}</p>
+                            <div class="rating">
+                            @for ($i = 0; $i < 5; $i++)
+                                @if ($i < $comment->rating)
+                                    <span class="fa fa-star checked"></span>
+                                @else
+                                    <span class="fa fa-star"></span>
+                                @endif
+                            @endfor
+                        </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Section: Affichage des  Commentaires -->
+
+
         <!-- Section: Social media -->
         <section class="social mb-4">
             <a class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
@@ -115,4 +183,6 @@
 <script src="{{asset('css/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('css/scr.js')}}"></script>
 <script src="{{ asset('css/all.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
 </html>

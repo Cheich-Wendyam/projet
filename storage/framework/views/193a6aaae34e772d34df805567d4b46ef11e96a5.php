@@ -34,7 +34,8 @@
 
                 <div class="card-content <?php echo e($index === 0 ? 'active' : ''); ?>">
                 <h2 class="titre <?php echo e($index === 0 ? 'active' : ''); ?>"><?php echo e($image->Titre); ?></h2>
-                <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> <?php echo e($image->description); ?> </p>
+                <p class="description <?php echo e($index === 0 ? 'active' : ''); ?>"> detente et loisir</p>
+                <i class="fa fa-heart favorite-icon"></i>
 
                 <a href="<?php echo e(route('space.show', $image->id)); ?>" class="btn btn-primary">En savoir plus</a>            </div>
             </div>

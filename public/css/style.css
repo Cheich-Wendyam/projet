@@ -180,4 +180,14 @@ html, body {
     background-color: #cc5200;
 }
 
+.favorite-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    color: #cccccc;
+}
+.favorite-icon.favorited {
+    color: red;
+}
 

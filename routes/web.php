@@ -9,6 +9,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CommentController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,8 +69,8 @@ Route::get('/', function () {
 });
 Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
 Route::get('/map/{id}', [App\Http\Controllers\MapController::class, 'show'])->name('map.show');
-Route::get('/map{id}', [App\Http\Controllers\MapController::class,'showSite'])->name('map.showSite');
-Route::get('/map{id}', [App\Http\Controllers\MapController::class,'showSpace'])->name('map.showSpace');
 
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 

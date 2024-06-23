@@ -44,3 +44,36 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Récupérer les favoris du stockage local
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  // Mettre à jour les icônes de favoris en fonction du stockage local
+  document.querySelectorAll('.card').forEach(function(card) {
+      const id = card.getAttribute('data-id');
+      const icon = card.querySelector('.favorite-icon');
+      if (favorites.includes(id)) {
+          icon.classList.add('favorited');
+      }
+      // Ajouter l'événement click à chaque icône
+      icon.addEventListener('click', function() {
+          this.classList.toggle('favorited');
+          updateFavorites(id);
+      });
+  });
+
+  // Fonction pour mettre à jour les favoris dans le stockage local
+  function updateFavorites(id) {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      if (favorites.includes(id)) {
+          // Supprimer des favoris
+          const index = favorites.indexOf(id);
+          favorites.splice(index, 1);
+      } else {
+          // Ajouter aux favoris
+          favorites.push(id);
+      }
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+});

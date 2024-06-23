@@ -33,6 +33,7 @@
                 <div class="card-content {{ $index === 0 ? 'active' : '' }}">
                 <h2 class="titre {{ $index === 0 ? 'active' : '' }}">{{ $image->Titre }}</h2>
                 <p class="description {{ $index === 0 ? 'active' : '' }}"> {{ $image->description }} </p>
+                <i class="fa fa-heart favorite-icon"></i>
 
                 <a href="{{ route('events.show', $image->id) }}" class="btn btn-primary">En savoir plus</a>
             </div>

@@ -15,7 +15,7 @@
             </div>
         </div>
         <p>
-            <a href="{{ route('map'), $site->id }}" class="show-on-map">
+            <a href="{{ route('mapsite.showSite', $site->id)}}" class="show-on-map">
                <i class="fas fa-map-marker-alt"></i> Voir sur la carte
             </a>
         </p>

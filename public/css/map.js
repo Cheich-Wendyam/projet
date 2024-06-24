@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var event = JSON.parse(mapElement.getAttribute('data-event'));
     var hotels = JSON.parse(mapElement.getAttribute('data-hotels'));
     var restaurantData = JSON.parse(mapElement.getAttribute('data-restaurant'));
+    var siteData = JSON.parse(mapElement.getAttribute('data-site'));
+    var spaceData= JSON.parse(mapElement.getAttribute('data-space'));
+    var eventData = JSON.parse(mapElement.getAttribute('data-events'));
+    var hotelData = JSON.parse(mapElement.getAttribute('data-hotel'));
     var currentRoute = null; // Variable pour stocker l'itinéraire actuellement affiché
 
     // Initialiser la carte Leaflet centrée sur Ouagadougou
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var marker = L.marker([space.latitude, space.longitude], { icon: icon })
                 .addTo(map)
-                .bindPopup("<b>" + space.Titre + "</b><br><img src='" + space.image + "' alt='Image'/><br>" + space.description);
+                .bindPopup("<b>" + space.Titre + "</b><br>" + space.image + "<br>" +space.description);
 
             // Ajouter un écouteur d'événement de clic pour afficher l'itinéraire lorsque le marqueur est cliqué
             marker.on('click', function(e) {
@@ -158,7 +162,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return button;
     };
     zoomButton.addTo(map);
-    
+    //bouton pour stoper l'itinéraire
+    var stopButton = L.control({ position: 'topright' });
+    stopButton.onAdd = function (map) {
+        var button = L.DomUtil.create('button', 'stop-button');
+        button.innerHTML = '<i class="fas fa-stop"></i>';
+        button.addEventListener('click', function() {
+            map.removeControl(currentRoute);
+        });
+        return button;
+    };
+    stopButton.addTo(map);
+
     // bouton de recherche et champ de saisi pour rechercher un element peu importe l'element sur la carte
     var searchButton = L.control({ position: 'topright' });
     searchButton.onAdd = function (map) {
@@ -333,43 +348,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
 
-    function showOnMap(latitude, longitude, Titre, description) {
-        var destination = [latitude, longitude];
-        var marker = L.marker(destination)
-            .addTo(map)
-            .bindPopup("<b>" + Titre + "</b><br>" + description)
-            .openPopup();
-        map.setView(destination, 15);
-    }
+   // Fonction pour afficher un marqueur sur la carte et ajouter un écouteur d'événement pour calculer l'itinéraire
+function showOnMap(latitude, longitude, Titre, description) {
+    var destination = [latitude, longitude];
+    var marker = L.marker(destination)
+        .addTo(map)
+        .bindPopup("<b>" + Titre + "</b><br>" + description)
+        .openPopup();
 
-    if (restaurantData) {
-        showOnMap(restaurantData.latitude, restaurantData.longitude, restaurantData.Titre, restaurantData.description);
-    }
+    // Ajouter un écouteur d'événement pour le clic sur le marqueur
+    marker.on('click', function(e) {
+        if (userLocation) {
+            calculateRoute(userLocation, destination);
+        } else {
+            alert('Votre position n\'a pas été trouvée. Veuillez activer la géolocalisation.');
+        }
+    });
 
-    // Corriger les erreurs potentielles dans les noms des variables et ajouter la condition pour les données des sites et des restos
-    if (sites) {
-        sites.forEach(function(site) {
-            showOnMap(site.latitude, site.longitude, site.Titre, site.description);
-        });
-    }
+    map.setView(destination, 15);
+}
 
-    if (restos) {
-        restos.forEach(function(resto) {
-            showOnMap(resto.latitude, resto.longitude, resto.Titre, resto.description);
-        });
-    }
+// Appel de la fonction showOnMap avec restaurantData
+if (restaurantData) {
+    showOnMap(restaurantData.latitude, restaurantData.longitude, restaurantData.Titre, restaurantData.description);
+}
 
-    if (hotels) {
-        hotels.forEach(function(hotel) {
-            showOnMap(hotel.latitude, hotel.longitude, hotel.Titre, hotel.description);
-        });
-    }
+if(siteData){
+    showOnMap(siteData.latitude, siteData.longitude, siteData.Titre, siteData.description);
+}
 
-    if (events) {
-        events.forEach(function(event) {
-            showOnMap(event.latitude, event.longitude, event.Titre, event.description);
-        });
-    }
+if(spaceData){
+    showOnMap(spaceData.latitude, spaceData.longitude, spaceData.Titre, spaceData.description);
+}
+
+if(eventData){
+    showOnMap(eventData.latitude, eventData.longitude, eventData.Titre, eventData.description);
+}
+
+if(hotelData){
+    showOnMap(hotelData.latitude, hotelData.longitude, hotelData.Titre, hotelData.description);
+}
+
+
+
 
 
    

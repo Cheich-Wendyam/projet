@@ -68,9 +68,15 @@ Route::get('/', function () {
     return redirect()->route('chargement');
 });
 Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
+Route::get('/mapsite', [App\Http\Controllers\MapController::class, 'indexsite'])->name('mapsite');
 Route::get('/map/{id}', [App\Http\Controllers\MapController::class, 'show'])->name('map.show');
-
-
+Route::get('/mapsite/{id}', [App\Http\Controllers\MapController::class, 'showSite'])->name('mapsite.showSite');
+Route::get('/mapespace', [App\Http\Controllers\MapController::class, 'indexspace'])->name('mapespace');
+Route::get('/mapespace/{id}', [App\Http\Controllers\MapController::class, 'showSpace'])->name('mapspace.showSpace');
+Route::get('/mapevent', [App\Http\Controllers\MapController::class, 'indexevent'])->name('mapevent');
+Route::get('/mapevent/{id}', [App\Http\Controllers\MapController::class, 'showEvent'])->name('mapevent.showEvent');
+Route::get('/maphotel', [App\Http\Controllers\MapController::class, 'indexhotel'])->name('maphotel');
+Route::get('/maphotel/{id}', [App\Http\Controllers\MapController::class, 'showhotel'])->name('maphotel.showhotel');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 

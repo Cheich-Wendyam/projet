@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var marker = L.marker([space.latitude, space.longitude], { icon: icon })
                 .addTo(map)
-                .bindPopup("<b>" + space.Titre + "</b><br>" + space.image + "<br>" +space.description);
+                .bindPopup("<b>" + space.Titre + "</b><br><img src="+space.image+" alt='" + space.Titre + "' width='100'><br>" + space.description);
 
             // Ajouter un écouteur d'événement de clic pour afficher l'itinéraire lorsque le marqueur est cliqué
             marker.on('click', function(e) {
